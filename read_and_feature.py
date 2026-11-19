@@ -692,9 +692,8 @@ def process_mesm_dataset(
     全量执行 MESM 征信模型特征工程与时序切分流水线。
     """
     print(f"📖 正在从 CSV 读取数据: {csv_path}")
-    #df = pd.read_csv(csv_path, sep="\t", escapechar="\\")
-    df = pd.concat(map(lambda f: pd.read_csv(f, sep="\t", escapechar="\\"), 
-                   sorted(glob.glob("/Users/mingxi/Documents/业务扩展/code2/user_sample_dd_out_new/part-*.csv"))))
+    df = pd.read_csv(csv_path, sep="\t", escapechar="\\")
+    #df = pd.concat(map(lambda f: pd.read_csv(f, sep="\t", escapechar="\\"),sorted(glob.glob("/Users/mingxi/Documents/业务扩展/code2/user_sample_dd_out_new/part-*.csv"))))
     
     # 过滤无效 report_time
     df = df[df['report_time'].notna()].copy().reset_index(drop=True)
